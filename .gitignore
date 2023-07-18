@@ -150,6 +150,9 @@ cython_debug/
 # Credentials
 server/config.json
 
+# reference format files
+server/example_comment_dict.txt
+
 # PyCharm
 #  JetBrains specific template is maintainted in a separate JetBrains.gitignore that can
 #  be found at https://github.com/github/gitignore/blob/main/Global/JetBrains.gitignore

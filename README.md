@@ -8,3 +8,5 @@
 conda create -n ReplyAI python=3.9
 conda activate ReplyAI
 ```
+
+将信息填入 config_template.json 并将文件重命名为 config.json。
