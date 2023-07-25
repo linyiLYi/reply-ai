@@ -1,0 +1,14 @@
+{
+	"name":"idgenerator",
+	"version":"1.0.0",
+	"description":"",
+	"main":"idgenerator.js",
+	"scripts":{
+		"test":"test"
+	},
+	"author":"",
+	"license":"ISC",
+	"dependencies":{
+		"@agconnect/database-server":"^1.0.7"
+	}
+}

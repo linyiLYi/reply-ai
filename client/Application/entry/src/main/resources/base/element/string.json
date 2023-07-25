@@ -1,0 +1,264 @@
+{
+  "string": [
+    {
+      "name": "module_desc",
+      "value": "module description"
+    },
+    {
+      "name": "entryability_desc",
+      "value": "description"
+    },
+    {
+      "name": "entryability_label",
+      "value": "Reply Assistant"
+    },
+    {
+      "name": "cloudDB_label",
+      "value": "Cloud Database"
+    },
+    {
+      "name": "tips_label",
+      "value": "Tips:"
+    },
+    {
+      "name": "data_label",
+      "value": "Data:"
+    },
+    {
+      "name": "publishButton_label",
+      "value": "Publish"
+    },
+    {
+      "name": "popUpDesc_label",
+      "value": "Are you sure you want to delete?"
+    },
+    {
+      "name": "deleteButton_label",
+      "value": "Delete"
+    },
+    {
+      "name": "cloudStorage_label",
+      "value": "Cloud Storage"
+    },
+    {
+      "name": "cancelButton_label",
+      "value": "Cancel"
+    },
+    {
+      "name": "confirmButton_label",
+      "value": "Confirm"
+    },
+    {
+      "name": "no_photo",
+      "value": "You don't have any images on your phone."
+    },
+    {
+      "name": "cloudStorage_description_title",
+      "value": "Tips:"
+    },
+    {
+      "name": "cloudStorage_uploadButton",
+      "value": "Upload Image"
+    },
+    {
+      "name": "list_left_title",
+      "value": "My Posts"
+    },
+    {
+      "name": "list_right_title",
+      "value": "Release Time"
+    },
+    {
+      "name": "main_page_title",
+      "value": "Cloud Development"
+    },
+    {
+      "name": "auth_service_title",
+      "value": "Auth Service"
+    },
+    {
+      "name": "auth_result_name",
+      "value": "nickname"
+    },
+    {
+      "name": "auth_service_description",
+      "value": "Secure and reliable user authentication system."
+    },
+    {
+      "name": "auth_service_login_button_text",
+      "value": "Login"
+    },
+    {
+      "name": "auth_service_logout_button_text",
+      "value": "Log out"
+    },
+    {
+      "name": "auth_service_delete_user_button_text",
+      "value": "Delete User"
+    },
+    {
+      "name": "auth_dialog_title",
+      "value": "Mobile verification code login"
+    },
+    {
+      "name": "auth_dialog_number_placeholder",
+      "value": "phone number"
+    },
+    {
+      "name": "auth_dialog_code_placeholder",
+      "value": "code"
+    },
+    {
+      "name": "auth_dialog_get_code_button_text",
+      "value": "Get code"
+    },
+    {
+      "name": "auth_dialog_auth_button_text",
+      "value": "Authorize"
+    },
+    {
+      "name": "auth_result_user_id",
+      "value": "user id"
+    },
+    {
+      "name": "auth_result_mobile_number",
+      "value": "mobile number"
+    },
+    {
+      "name": "auth_result_avatar",
+      "value": "avatar"
+    },
+    {
+      "name": "auth_result_registered",
+      "value": "registered"
+    },
+    {
+      "name": "auth_result_last_login",
+      "value": "last login"
+    },
+    {
+      "name": "cloud_function_title",
+      "value": "Cloud Functions"
+    },
+    {
+      "name": "cloud_function_description_main",
+      "value": "Easy to run code without managing servers"
+    },
+    {
+      "name": "cloud_function_description",
+      "value": "Tap to generate a global unique Cloud ID. Generated Cloud ID will be printed after tapping the button below."
+    },
+    {
+      "name": "cloud_function_button_text",
+      "value": "Generate Global Unique ID"
+    },
+    {
+      "name": "cloud_db_description_main",
+      "value": "Secure and trusted data management services."
+    },
+    {
+      "name": "login_warning_title",
+      "value": "Auth Error"
+    },
+    {
+      "name": "login_warning_message",
+      "value": "You must login to use this service"
+    },
+    {
+      "name": "cloudDB_Publications",
+      "value": "New Posts"
+    },
+    {
+      "name": "cloudDB_HighestHit",
+      "value": "Most Liked"
+    },
+    {
+      "name": "cloudDB_SeeOnly",
+      "value": "My Posts"
+    },
+    {
+      "name": "cloudDB_new_record",
+      "value": "New"
+    },
+    {
+      "name": "dialog_success_title",
+      "value": "Success"
+    },
+    {
+      "name": "dialog_success_message",
+      "value": "Added new record successfully"
+    },
+    {
+      "name": "global_var_description",
+      "value": "Insert as global record"
+    },
+    {
+      "name": "cloudStorage_description",
+      "value": "Upload an image to cloud storage. Click the button below to get a file link with high speed, low cost from the cloud storage."
+    },
+    {
+      "name": "cloudStorage_accessAddressLabel",
+      "value": "Access URL: "
+    },
+    {
+      "name": "cloudStorage_publicAccessAddressLabel",
+      "value": "Public URL: "
+    },
+    {
+      "name": "image_upload_label",
+      "value": "image uploading:"
+    },
+    {
+      "name": "cloudStorage_link1",
+      "value": "copy"
+    },
+    {
+      "name": "cloudStorage_link2",
+      "value": "copy"
+    },
+    {
+      "name": "db_option_edit",
+      "value": "Edit"
+    },
+    {
+      "name": "cloud_storage_description_main",
+      "value": "Efficient cloud storage. High speed, low cost file upload and download services"
+    },
+    {
+      "name": "cloudStorage_progressLabel",
+      "value": "Image uploading "
+    },
+    {
+      "name": "media_permission_reason",
+      "value": "App needs media permission to display Cloud Storage Features."
+    },
+    {
+      "name": "cloudStorage_link_copy",
+      "value": "Copy"
+    },
+    {
+      "name": "common_prompt",
+      "value": "Warn"
+    },
+    {
+      "name": "common_login_fail",
+      "value": "Fail to login"
+    },
+    {
+      "name": "EntryFormAbility_desc",
+      "value": "form_description"
+    },
+    {
+      "name": "EntryFormAbility_label",
+      "value": "form_label"
+    },
+    {
+      "name": "title_immersive",
+      "value": "Today's delicious food"
+    },
+    {
+      "name": "detail_immersive",
+      "value": "A bowl of fragrant fried noodles, back to childhood memories"
+    }
+  ]
+}

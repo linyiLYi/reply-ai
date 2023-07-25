@@ -1,0 +1,18 @@
+{
+  "appSelected": {
+    "appId": "1207795828341615424",
+    "appName": "ReplyAssistant",
+    "deviceTypes": [
+      {
+        "deviceType": 4
+      }
+    ],
+    "enableSites": "CN",
+    "installationFree": 1,
+    "packageType": 7,
+    "projectId": "388421841221591351",
+    "projectName": "语言模型回复助手",
+    "siteId": "CN"
+  },
+  "teamId": "2850086000505459258"
+}

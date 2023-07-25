@@ -149,9 +149,17 @@ cython_debug/
 
 # Credentials
 server/config.json
+client/Application/entry/src/main/resources/rawfile/agconnect-services.json
+*.ets
+!/client/Application/entry/src/main/ets/pages/Conversation_template.ets
 
 # reference format files
 server/example_comment_dict.txt
+
+# DevEco build files
+*oh_modules*
+*node_modules*
+*build*
 
 # PyCharm
 #  JetBrains specific template is maintainted in a separate JetBrains.gitignore that can

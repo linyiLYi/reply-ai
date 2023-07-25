@@ -1,0 +1,110 @@
+{
+  "permissions": [
+    {
+      "role": "World",
+      "rights": [
+        "Read"
+      ]
+    },
+    {
+      "role": "Authenticated",
+      "rights": [
+        "Read",
+        "Upsert"
+      ]
+    },
+    {
+      "role": "Creator",
+      "rights": [
+        "Read",
+        "Upsert",
+        "Delete"
+      ]
+    },
+    {
+      "role": "Administrator",
+      "rights": [
+        "Read",
+        "Upsert",
+        "Delete"
+      ]
+    }
+  ],
+  "indexes": [
+    {
+      "indexName": "insertDate",
+      "indexList": [{ "fieldName": "insertDate", "sortType": "DESC" }]
+    },
+    {
+      "indexName": "likeCount",
+      "indexList": [{ "fieldName": "likeCount", "sortType": "DESC" }]
+    },
+    {
+      "indexName": "userId",
+      "indexList": [{ "fieldName": "userId", "sortType": "ASC" }]
+    }
+  ],
+  "objectTypeName": "Post",
+  "fields": [
+    {
+      "isNeedEncrypt": false,
+      "fieldName": "id",
+      "notNull": true,
+      "belongPrimaryKey": true,
+      "fieldType": "LongAutoIncrement"
+    },
+    {
+      "isNeedEncrypt": false,
+      "fieldName": "userId",
+      "notNull": true,
+      "defaultValue": "",
+      "belongPrimaryKey": false,
+      "fieldType": "String"
+    },
+    {
+      "isNeedEncrypt": false,
+      "fieldName": "content",
+      "notNull": true,
+      "defaultValue": "",
+      "belongPrimaryKey": false,
+      "fieldType": "String"
+    },
+    {
+      "isNeedEncrypt": false,
+      "fieldName": "name",
+      "notNull": false,
+      "belongPrimaryKey": false,
+      "fieldType": "String"
+    },
+    {
+      "isNeedEncrypt": false,
+      "fieldName": "profilePicture",
+      "notNull": false,
+      "belongPrimaryKey": false,
+      "fieldType": "String"
+    },
+    {
+      "isNeedEncrypt": false,
+      "fieldName": "insertDate",
+      "notNull": false,
+      "belongPrimaryKey": false,
+      "fieldType": "Date"
+    },
+    {
+      "isNeedEncrypt": false,
+      "fieldName": "likes",
+      "notNull": true,
+      "defaultValue": "[]",
+      "belongPrimaryKey": false,
+      "fieldType": "String"
+    },
+    {
+      "isNeedEncrypt": false,
+      "fieldName": "likeCount",
+      "notNull": true,
+      "defaultValue": "0",
+      "belongPrimaryKey": false,
+      "fieldType": "Integer"
+    }
+  ]
+}

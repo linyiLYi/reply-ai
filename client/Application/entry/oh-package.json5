@@ -1,0 +1,21 @@
+{
+  "license": "",
+  "devDependencies": {},
+  "author": "",
+  "name": "entry",
+  "description": "Please describe the basic information.",
+  "main": "",
+  "version": "1.0.0",
+  "dependencies": {
+    "@hw-agconnect/api-ohos": "^1.0.10",
+    "@hw-agconnect/crypto-ohos": "^1.0.10",
+    "@hw-agconnect/function-ohos": "^1.0.10",
+    "@hw-agconnect/base-ohos": "^1.0.10",
+    "@hw-agconnect/core-ohos": "^1.0.10",
+    "@hw-agconnect/auth-ohos": "^1.0.10",
+    "@hw-agconnect/cloudstorage-ohos": "^1.0.10",
+    "@ohos/agconnect-auth-component": "^1.0.5",
+    "@hw-agconnect/credential-ohos": "^1.0.10",
+    "long": "5.2.1"
+  }
+}

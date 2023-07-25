@@ -1,0 +1,26 @@
+{
+  "cloudDBZoneName": "Demo",
+  "objectTypeName": "Post",
+  "objects": [
+    {
+      "id": 1,
+      "userId": "000001",
+      "content": "Hello, Harmony OS",
+      "name": "John Doe",
+      "profilePicture": "https://avatars.githubusercontent.com/u/70506906?s=200&v=4",
+      "insertDate": 1670329496852,
+      "likes": "[\"000002\"]",
+      "likeCount": 1
+    },
+    {
+      "id": 2,
+      "userId": "000002",
+      "content": "Hello, Open Harmony",
+      "name": "Jane Doe",
+      "profilePicture": "https://avatars.githubusercontent.com/u/70506906?s=200&v=4",
+      "insertDate": 1670329496852,
+      "likes": "[\"000001\", \"000002\"]",
+      "likeCount": 2
+    }
+  ]
+}

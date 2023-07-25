@@ -1,0 +1,264 @@
+{
+  "string": [
+    {
+      "name": "module_desc",
+      "value": "模块描述"
+    },
+    {
+      "name": "entryability_desc",
+      "value": "description"
+    },
+    {
+      "name": "entryability_label",
+      "value": "回复助手"
+    },
+    {
+      "name": "cloudDB_label",
+      "value": "云数据库"
+    },
+    {
+      "name": "tips_label",
+      "value": "提示:"
+    },
+    {
+      "name": "data_label",
+      "value": "数据:"
+    },
+    {
+      "name": "publishButton_label",
+      "value": "发布"
+    },
+    {
+      "name": "popUpDesc_label",
+      "value": "是否确认删除?"
+    },
+    {
+      "name": "deleteButton_label",
+      "value": "删除"
+    },
+    {
+      "name": "cloudStorage_label",
+      "value": "云存储"
+    },
+    {
+      "name": "cancelButton_label",
+      "value": "取消"
+    },
+    {
+      "name": "confirmButton_label",
+      "value": "确认"
+    },
+    {
+      "name": "no_photo",
+      "value": "您的手机上没有任何图像。"
+    },
+    {
+      "name": "cloudStorage_description_title",
+      "value": "提示:"
+    },
+    {
+      "name": "cloudStorage_uploadButton",
+      "value": "上传图片"
+    },
+    {
+      "name": "list_left_title",
+      "value": "我的发布"
+    },
+    {
+      "name": "list_right_title",
+      "value": "上传时间"
+    },
+    {
+      "name": "main_page_title",
+      "value": "云开发"
+    },
+    {
+      "name": "auth_service_title",
+      "value": "认证服务"
+    },
+    {
+      "name": "auth_service_description",
+      "value": "安全可靠的用户认证系统"
+    },
+    {
+      "name": "auth_service_login_button_text",
+      "value": "登录"
+    },
+    {
+      "name": "auth_service_logout_button_text",
+      "value": "登出"
+    },
+    {
+      "name": "auth_service_delete_user_button_text",
+      "value": "注销帐号"
+    },
+    {
+      "name": "auth_dialog_title",
+      "value": "手机验证码登录"
+    },
+    {
+      "name": "auth_dialog_number_placeholder",
+      "value": "电话号码"
+    },
+    {
+      "name": "auth_dialog_code_placeholder",
+      "value": "验证码"
+    },
+    {
+      "name": "auth_dialog_get_code_button_text",
+      "value": "获取验证码"
+    },
+    {
+      "name": "auth_dialog_auth_button_text",
+      "value": "登录"
+    },
+    {
+      "name": "auth_result_user_id",
+      "value": "用户身份"
+    },
+    {
+      "name": "auth_result_mobile_number",
+      "value": "手机号码"
+    },
+    {
+      "name": "auth_result_name",
+      "value": "昵称"
+    },
+    {
+      "name": "auth_result_avatar",
+      "value": "头像"
+    },
+    {
+      "name": "auth_result_registered",
+      "value": "注册时间"
+    },
+    {
+      "name": "auth_result_last_login",
+      "value": "上次登录"
+    },
+    {
+      "name": "cloud_function_title",
+      "value": "云函数"
+    },
+    {
+      "name": "cloud_function_description_main",
+      "value": "无需管理服务器即可轻松运行代码"
+    },
+    {
+      "name": "cloud_function_description",
+      "value": "调用生成云的全局唯一ID 并打印云函数返回的ID"
+    },
+    {
+      "name": "cloud_function_button_text",
+      "value": "生成一个全局唯一的 id"
+    },
+    {
+      "name": "cloud_db_description_main",
+      "value": "安全可靠的数据管理服务"
+    },
+    {
+      "name": "cloud_storage_description_main",
+      "value": "高效经济的文件上传下载服务"
+    },
+    {
+      "name": "login_warning_title",
+      "value": "验证错误"
+    },
+    {
+      "name": "login_warning_message",
+      "value": "您必须登录才能使用此服务"
+    },
+    {
+      "name": "cloudDB_Publications",
+      "value": "最新发布"
+    },
+    {
+      "name": "cloudDB_HighestHit",
+      "value": "热度最高"
+    },
+    {
+      "name": "cloudDB_SeeOnly",
+      "value": "只看我的"
+    },
+    {
+      "name": "cloudDB_new_record",
+      "value": "新建"
+    },
+    {
+      "name": "dialog_success_title",
+      "value": "成功"
+    },
+    {
+      "name": "dialog_success_message",
+      "value": "添加新记录成功"
+    },
+    {
+      "name": "global_var_description",
+      "value": "作为全局记录插入"
+    },
+    {
+      "name": "cloudStorage_description",
+      "value": "上传图片到云存储, 获得一个可高速访问的文件链接"
+    },
+    {
+      "name": "cloudStorage_accessAddressLabel",
+      "value": "访问地址: "
+    },
+    {
+      "name": "cloudStorage_publicAccessAddressLabel",
+      "value": "公开访问地址: "
+    },
+    {
+      "name": "image_upload_label",
+      "value": "图片上传："
+    },
+    {
+      "name": "cloudStorage_link1",
+      "value": "复制"
+    },
+    {
+      "name": "cloudStorage_link2",
+      "value": "复制"
+    },
+    {
+      "name": "cloudStorage_progressLabel",
+      "value": "图片上传"
+    },
+    {
+      "name": "db_option_edit",
+      "value": "编辑"
+    },
+    {
+      "name": "media_permission_reason",
+      "value": "应用程序需要媒体权限才能显示云存储功能。"
+    },
+    {
+      "name": "cloudStorage_link_copy",
+      "value": "复制"
+    },
+    {
+      "name": "common_prompt",
+      "value": "警告"
+    },
+    {
+      "name": "common_login_fail",
+      "value": "登录失败"
+    },
+    {
+      "name": "EntryFormAbility_desc",
+      "value": "form_description"
+    },
+    {
+      "name": "EntryFormAbility_label",
+      "value": "form_label"
+    },
+    {
+      "name": "title_immersive",
+      "value": "今日美食推荐"
+    },
+    {
+      "name": "detail_immersive",
+      "value": "一碗香喷喷的炸酱面，回到儿时的青涩回忆"
+    }
+  ]
+}

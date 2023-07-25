@@ -1,3 +1,4 @@
+import os
 import json
 import time
 import requests
@@ -6,12 +7,13 @@ from bilibili_api import comment, sync, video, Credential
 
 
 # Server Configuration
-HOST = 'localhost:5000' # The port is shown on the terminal when you run the server
+HOST = '127.0.0.1:5000' # The port is shown on the terminal when you run the server
+# localhost might cause problem
 URI = f'http://{HOST}/api/v1/chat' # For local streaming, the websockets are hosted without ssl - http://
 
 # Language Model Configuration
 NAME = "B站网友"
-DEBUG = False
+DEBUG = True
 
 def run(user_input, history):
     request = {
@@ -63,6 +65,9 @@ def run(user_input, history):
 
     response = requests.post(URI, json=request)
 
+    if DEBUG:
+        print(response)
+
     if response.status_code == 200:
         if DEBUG:
             print(json.dumps(response.json(), indent=4, ensure_ascii=False).encode('utf8').decode())
@@ -71,7 +76,7 @@ def run(user_input, history):
         return None
     
 
-async def main(aid, credential, values):
+async def main(aid, credential, stored_rpid_set, values):
 
     comments = []
     page = 1
@@ -108,7 +113,8 @@ async def main(aid, credential, values):
             # time.sleep(600) # Wait for 10 minutes.
             break
 
-        comment_unreplied = [c for c in comment_page['replies'] if not c["up_action"]["reply"]]
+        comment_unreplied = [c for c in comment_page['replies'] if not c["up_action"]["reply"] and c['rpid'] not in stored_rpid_set]
+
         comments.extend(comment_unreplied)
 
         num_comment_unreplied += len(comment_unreplied)
@@ -147,6 +153,17 @@ if __name__ == '__main__':
     with open("config.json", "r") as f:
         values = json.load(f)
     
+    if os.path.exists('comments.json'):
+        with open('comments.json', 'r') as f:
+            stored_comments = json.load(f)
+    else:
+        stored_comments = []
+
+    stored_rpid_set = {cmt['rpid'] for cmt in stored_comments}
+
+    if DEBUG:
+        print(stored_rpid_set)
+    
     credential = Credential(
         sessdata=values["SESSDATA"], 
         bili_jct=values["bili_jct"], 
@@ -157,12 +174,13 @@ if __name__ == '__main__':
     v = video.Video(bvid=values['BVID'])
     aid = v.get_aid()
 
-    comments = sync(main(aid, credential, values))
+    comments = sync(main(aid, credential, stored_rpid_set, values))
 
     history = {'internal': [], 'visible': []}
     
     for cmt in comments: # Test for 10 comment.
         print(f"{cmt['member']['uname']}: {cmt['content']['message']}")
+
         time_ckpt = time.time()
         
         # send comment to text-generation-webui
@@ -173,8 +191,13 @@ if __name__ == '__main__':
 
         if reply is not None:
             print("%s: %s (Time %d ms)" % ("云若", reply, (time.time() - time_ckpt) * 1000))
-        
+            cmt["reply"] = reply
+            stored_comments.append(cmt)
+
         # Send reply to bilibili
-        result = sync(send_reply(reply, aid, cmt, credential))
+        # result = sync(send_reply(reply, aid, cmt, credential))
         # print(result)
         # time.sleep(3) # Don't need to set waiting time. The time of comment generation is enough.
+
+    with open("comments.json", "w") as f:
+        json.dump(stored_comments, f, indent=4, ensure_ascii=False)

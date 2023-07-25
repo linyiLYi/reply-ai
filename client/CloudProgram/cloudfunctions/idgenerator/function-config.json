@@ -1,0 +1,15 @@
+{
+  "handler": "IdGenerator.myHandler",
+  "triggers": [
+    {
+      "type": "http",
+      "properties": {
+        "enableUrlDecode": true,
+        "authFlag": "true",
+        "authAlgor": "HDA-SYSTEM",
+        "authType": "apigw-client",
+        "mode": "NO_PATH"
+      }
+    }
+  ]
+}
