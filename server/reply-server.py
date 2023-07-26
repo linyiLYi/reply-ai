@@ -187,7 +187,7 @@ if __name__ == '__main__':
         user_input = cmt['content']['message']
         reply = run(user_input, history)
 
-        reply += "\n--来自云若，林亦的AI助理，经林亦确认后发出。"
+        # reply += "\n--来自云若，林亦的AI助理，经林亦确认后发出。"
 
         if reply is not None:
             print("%s: %s (Time %d ms)" % ("云若", reply, (time.time() - time_ckpt) * 1000))

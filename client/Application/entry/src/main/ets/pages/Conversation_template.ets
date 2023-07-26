@@ -5,7 +5,7 @@ import hilog from '@ohos.hilog';
 @Component
 struct Conversation {
   @State message: string = 'Hello World'
-  @State dialogues: string[][] = [["暂无评论", "暂无回复"]]
+  @State dialogues: string[][] = [["暂无评论", "暂无回复"], ["暂无评论", "暂无回复"]]
 
   async aboutToAppear(){
     this.get_dialogues();

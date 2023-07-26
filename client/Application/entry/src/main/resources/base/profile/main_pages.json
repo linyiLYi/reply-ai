@@ -3,7 +3,8 @@
     "pages/Index",
     "pages/Auth",
     "pages/CloudStorage",
-	"pages/CloudFunction",
+    "pages/CloudFunction",
+    "pages/ConversationDev",
     "pages/Conversation"
   ]
 }
