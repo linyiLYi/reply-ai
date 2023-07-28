@@ -76,29 +76,12 @@ def run(user_input, history):
         return None
     
 
-async def main(aid, credential, stored_rpid_set, values):
+async def scrape_unreplied_comments(aid, credential, stored_rpid_set, values):
 
-    comments = []
+    unreplied_comments = []
     page = 1
-    num_comment = 0
-    num_comment_unreplied = 0
 
-    # comment_page = await comment.get_comments(
-    #     aid, 
-    #     comment.CommentResourceType.VIDEO,
-    #     page,
-    #     credential=credential
-    # ) # Ranked by TIME (newest to oldest).
-    
-    # print(comment_page)
-    # comment_unreplied = [c for c in comment_page['replies'] if not c["up_action"]["reply"]]
-    # comments.extend(comment_unreplied)
-
-    # num_comment_unreplied += len(comment_unreplied)
-    # num_comment += comment_page['page']['size']
-
-    # while True:
-    for i in range(1): # Test for 1 page.
+    while True:
         comment_page = await comment.get_comments(
             aid, 
             comment.CommentResourceType.VIDEO,
@@ -106,55 +89,29 @@ async def main(aid, credential, stored_rpid_set, values):
             credential=credential
         ) # Ranked by TIME (newest to oldest).
 
-        if comment_page["replies"] is None:
-            # TODO: Maintain a list (set) of unreplied comments. 
-            # If any comment in current page is in the list (set), break the loop and stop requesting new pages.
-            print("All comments processed!")
-            # time.sleep(600) # Wait for 10 minutes.
+        new_comments = [c for c in comment_page['replies'] if not c["up_action"]["reply"] and c['rpid'] not in stored_rpid_set]
+        for cmt in new_comments:
+            print(f"{cmt['member']['uname']}: {cmt['content']['message']}")
+
+        if len(new_comments) == 0:
+            print("未回复评论已抓取完毕，共 %d 条。\n" % (len(unreplied_comments)))
             break
 
-        comment_unreplied = [c for c in comment_page['replies'] if not c["up_action"]["reply"] and c['rpid'] not in stored_rpid_set]
-
-        comments.extend(comment_unreplied)
-
-        num_comment_unreplied += len(comment_unreplied)
-        num_comment += comment_page['page']['size']
-
+        unreplied_comments.extend(new_comments)
         page += 1
 
-        if num_comment >= comment_page['page']['count']: # If the number of fetched comments reaches the total number of comments, break the loop.
-            break
+        time.sleep(3) # Wait for three seconds to avoid being banned by bilibili.
 
-        # for cmt in comment_unreplied:
-        #     print(f"{cmt['member']['uname']}: {cmt['content']['message']}")
-
-        time.sleep(3) # Avoid being banned by bilibili.
-
-    # for cmt in comments:
-    #     print(f"{cmt['member']['uname']}: {cmt['content']['message']}")
-
-    # 打印评论总数
-    print(f"共有 {num_comment} 条评论（不含子评论），其中 {num_comment_unreplied} 条未回复。")
-
-    return comments
-
-async def send_reply(reply, aid, cmt, credential):
-    result = await comment.send_comment(
-        reply, 
-        aid, 
-        comment.CommentResourceType.VIDEO, 
-        root=cmt['rpid'],
-        credential=credential
-    )
+    return unreplied_comments
         
 
 if __name__ == '__main__':
     
-    with open("config.json", "r") as f:
+    with open("data/config.json", "r") as f:
         values = json.load(f)
     
-    if os.path.exists('comments.json'):
-        with open('comments.json', 'r') as f:
+    if os.path.exists('data/comments.json'):
+        with open('data/comments.json', 'r') as f:
             stored_comments = json.load(f)
     else:
         stored_comments = []
@@ -174,30 +131,25 @@ if __name__ == '__main__':
     v = video.Video(bvid=values['BVID'])
     aid = v.get_aid()
 
-    comments = sync(main(aid, credential, stored_rpid_set, values))
+    unreplied_comments = sync(scrape_unreplied_comments(aid, credential, stored_rpid_set, values))
 
     history = {'internal': [], 'visible': []}
     
-    for cmt in comments: # Test for 10 comment.
+    if len(unreplied_comments) > 0:
+        print("=============== 云若回复中 ===================")
+
+    for cmt in unreplied_comments: # Test for 10 comment.
         print(f"{cmt['member']['uname']}: {cmt['content']['message']}")
 
-        time_ckpt = time.time()
-        
         # send comment to text-generation-webui
+        time_ckpt = time.time()
         user_input = cmt['content']['message']
         reply = run(user_input, history)
-
-        # reply += "\n--来自云若，林亦的AI助理，经林亦确认后发出。"
 
         if reply is not None:
             print("%s: %s (Time %d ms)" % ("云若", reply, (time.time() - time_ckpt) * 1000))
             cmt["reply"] = reply
             stored_comments.append(cmt)
 
-        # Send reply to bilibili
-        # result = sync(send_reply(reply, aid, cmt, credential))
-        # print(result)
-        # time.sleep(3) # Don't need to set waiting time. The time of comment generation is enough.
-
-    with open("comments.json", "w") as f:
+    with open("data/comments.json", "w") as f:
         json.dump(stored_comments, f, indent=4, ensure_ascii=False)
