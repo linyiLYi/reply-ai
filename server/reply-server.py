@@ -13,7 +13,7 @@ URI = f'http://{HOST}/api/v1/chat' # For local streaming, the websockets are hos
 
 # Language Model Configuration
 NAME = "B站网友"
-DEBUG = True
+DEBUG = False
 
 def run(user_input, history):
     request = {
@@ -147,9 +147,11 @@ if __name__ == '__main__':
         reply = run(user_input, history)
 
         if reply is not None:
-            print("%s: %s (Time %d ms)" % ("云若", reply, (time.time() - time_ckpt) * 1000))
+            print("%s: %s (Time %d ms)\n" % ("云若", reply, (time.time() - time_ckpt) * 1000))
             cmt["reply"] = reply
             stored_comments.append(cmt)
+        
+        time.sleep(1) # Wait for one second to avoid crashing text-generation-webui server.
 
     with open("data/comments.json", "w") as f:
         json.dump(stored_comments, f, indent=4, ensure_ascii=False)
