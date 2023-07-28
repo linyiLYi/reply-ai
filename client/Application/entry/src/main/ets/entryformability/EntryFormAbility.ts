@@ -1,11 +1,54 @@
 import formInfo from '@ohos.app.form.formInfo';
 import formBindingData from '@ohos.app.form.formBindingData';
 import FormExtensionAbility from '@ohos.app.form.FormExtensionAbility';
+import hilog from '@ohos.hilog';
+import http from '@ohos.net.http';
 
 export default class EntryFormAbility extends FormExtensionAbility {
+
+  dialogues: any[] = [{
+    "rpid": "xxxxxxxxxxxx",
+    "content": {
+      "message": "暂无评论"
+    },
+    "reply": "暂无回复",
+    "member": {
+      "uname": "暂无用户"
+    }
+  }]
+
+  getDialogues(){
+    let httpDataRequest = http.createHttp();
+    httpDataRequest.request(
+      "http://192.168.31.2/comments",
+      {
+        method: http.RequestMethod.GET,
+        header: {
+          "Content-Type": "application/json",
+          "charset": "utf-8",
+        },
+        connectTimeout: 60000,
+        readTimeout: 60000
+      },
+      (err, data) => {
+        if (err) {
+          hilog.info(0x0000, 'testTag', '%{public}s', 'Request failed: ' + JSON.stringify(err));
+          return;
+        }
+        var dialogueJSONString = JSON.parse(data.result.toString());
+        if (dialogueJSONString) {
+          this.dialogues = dialogueJSONString;
+        }
+      }
+    )
+  }
+
   onAddForm(want) {
+    this.getDialogues();
     // Called to return a FormBindingData object.
-    let formData = {};
+    let formData = {
+      "dialogues": this.dialogues
+    };
     return formBindingData.createFormBindingData(formData);
   }
 

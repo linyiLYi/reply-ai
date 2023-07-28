@@ -1,6 +1,10 @@
 {
   "string": [
     {
+      "name": "app_name",
+      "value": "回复助手"
+    },
+    {
       "name": "module_desc",
       "value": "module description"
     },
@@ -11,6 +15,22 @@
     {
       "name": "entryability_label",
       "value": "Reply Assistant"
+    },
+    {
+      "name": "button_text_accept",
+      "value": "Accept"
+    },
+    {
+      "name": "button_text_reject",
+      "value": "Reject"
+    },
+    {
+      "name": "button_text_edit",
+      "value": "Edit"
+    },
+    {
+      "name": "button_text_submit",
+      "value": "Submit"
     },
     {
       "name": "cloudDB_label",
