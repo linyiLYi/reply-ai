@@ -10,3 +10,8 @@ conda activate ReplyAI
 ```
 
 将信息填入 config_template.json 并将文件重命名为 config.json。
+
+```
+# 启动 text-generation-webui
+python server.py --chat --api --n-gpu-layers 2000000 --model chinese-llama-33b-ggml-f16.bin
+```
