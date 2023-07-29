@@ -148,7 +148,6 @@ cython_debug/
 *DS_Store
 
 # Credentials
-server/data/config.json
 *.json
 !/server/data/comments_template.json
 !/server/data/config_template.json
