@@ -6,7 +6,7 @@ import http from '@ohos.net.http';
 
 export default class EntryFormAbility extends FormExtensionAbility {
 
-  dialogues: any[] = [{
+  topDialogue: any = {
     "rpid": "xxxxxxxxxxxx",
     "content": {
       "message": "暂无评论"
@@ -15,9 +15,9 @@ export default class EntryFormAbility extends FormExtensionAbility {
     "member": {
       "uname": "暂无用户"
     }
-  }]
+  }
 
-  getDialogues(){
+  getTopDialogue() {
     let httpDataRequest = http.createHttp();
     httpDataRequest.request(
       "http://192.168.31.2/comments",
@@ -37,17 +37,17 @@ export default class EntryFormAbility extends FormExtensionAbility {
         }
         var dialogueJSONString = JSON.parse(data.result.toString());
         if (dialogueJSONString) {
-          this.dialogues = dialogueJSONString;
+          this.topDialogue = dialogueJSONString[0];
         }
       }
     )
   }
 
   onAddForm(want) {
-    this.getDialogues();
     // Called to return a FormBindingData object.
+    this.getTopDialogue();
     let formData = {
-      "dialogues": this.dialogues
+      "dialogue": this.topDialogue
     };
     return formBindingData.createFormBindingData(formData);
   }
@@ -63,6 +63,17 @@ export default class EntryFormAbility extends FormExtensionAbility {
 
   onChangeFormVisibility(newStatus) {
     // Called when the form provider receives form events from the system.
+    for (let key in newStatus) {
+      if (newStatus[key] === formInfo.VisibilityType.FORM_VISIBLE) {
+        // update the top dialogue
+        this.getTopDialogue();
+        // update the form data
+        let formData = {
+          "dialogue": this.topDialogue
+        };
+        formBindingData.createFormBindingData(formData);
+      }
+    }
   }
 
   onFormEvent(formId, message) {

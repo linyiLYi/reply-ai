@@ -2,6 +2,7 @@ import hilog from '@ohos.hilog';
 import UIAbility from '@ohos.app.ability.UIAbility';
 import Window from '@ohos.window';
 import abilityAccessCtrl from '@ohos.abilityAccessCtrl';
+import EntryFormAbility from '../entryformability/EntryFormAbility';
 
 export default class EntryAbility extends UIAbility {
   onCreate() {

@@ -21,7 +21,9 @@ CREDENTIAL = Credential(
 PROCESSED_RPID_SET = set()
 if os.path.exists('data/processed_rpids.txt'):
     with open('data/processed_rpids.txt', 'r') as f:
-        processed_set = {int(line.strip()) for line in f if line.strip()}
+        PROCESSED_RPID_SET = {int(line.strip()) for line in f if line.strip()}
+if DEBUG:
+    print(PROCESSED_RPID_SET)
 
 @app.route('/comments', methods=['GET'])
 def get_comments():

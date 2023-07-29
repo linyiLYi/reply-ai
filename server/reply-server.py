@@ -153,5 +153,6 @@ if __name__ == '__main__':
         
         time.sleep(1) # Wait for one second to avoid crashing text-generation-webui server.
 
+    print("云若回复完毕，正在存储...")
     with open("data/comments.json", "w") as f:
         json.dump(stored_comments, f, indent=4, ensure_ascii=False)

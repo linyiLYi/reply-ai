@@ -35,6 +35,10 @@
     {
       "name": "column_padding",
       "value": "12vp"
+    },
+    {
+      "name": "font_size",
+      "value": "16fp"
     }
   ]
 }
