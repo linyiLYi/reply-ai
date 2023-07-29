@@ -29,6 +29,10 @@
       "value": "Edit"
     },
     {
+      "name": "button_text_refresh",
+      "value": "Refresh"
+    },
+    {
       "name": "button_text_submit",
       "value": "Submit"
     },

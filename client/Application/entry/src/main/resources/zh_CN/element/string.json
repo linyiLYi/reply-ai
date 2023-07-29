@@ -29,6 +29,10 @@
       "value": "编辑"
     },
     {
+      "name": "button_text_refresh",
+      "value": "刷新"
+    },
+    {
       "name": "button_text_submit",
       "value": "提交"
     },

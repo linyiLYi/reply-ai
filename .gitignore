@@ -166,6 +166,10 @@ server/example_comment_dict.txt
 *node_modules*
 *build*
 
+# Server files
+server/data/processed_rpids.txt
+server/data/rejected_rpids.txt
+
 # PyCharm
 #  JetBrains specific template is maintainted in a separate JetBrains.gitignore that can
 #  be found at https://github.com/github/gitignore/blob/main/Global/JetBrains.gitignore
