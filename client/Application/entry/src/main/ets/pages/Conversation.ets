@@ -37,7 +37,7 @@ struct Conversation {
   getDialogues(){
     let httpDataRequest = http.createHttp();
     httpDataRequest.request(
-      "http://[server-ip]/comments",
+      "http://192.168.31.2/comments",
       {
         method: http.RequestMethod.GET,
         header: {

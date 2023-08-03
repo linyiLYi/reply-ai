@@ -116,7 +116,7 @@ if __name__ == '__main__':
     else:
         stored_comments = []
 
-    stored_rpid_set = {cmt['rpid'] for cmt in stored_comments}
+    stored_rpid_set = set([cmt['rpid'] for cmt in stored_comments])
 
     if DEBUG:
         print(stored_rpid_set)
