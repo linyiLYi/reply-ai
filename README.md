@@ -1,4 +1,4 @@
-# 人工智能回复助手
+# 人工智能互动助手
 
 本项目为一个基于大语言模型的视频评论回复系统，包含服务端脚本与移动端工程文件。其中服务端由一个负责生成回复的回复服务脚本与一个负责与移动端及目标网站通信的数据服务脚本组成；移动端则为 HarmonyOS 元服务形式，提供完整服务与桌面万能卡片。
 
@@ -40,85 +40,26 @@ python reply-server.py
 python data-server.py
 ```
 
-
-
-### 环境配置
-
-```bash
-# 创建 conda 环境，将其命名为 SnakeAI，Python 版本 3.8.16
-conda create -n SnakeAI python=3.8.16
-conda activate SnakeAI
-```
-
-在 Windows 与 macOS 下配置外部代码库的过程略有不同。Windows 下使用 CUDA 加速，macOS 下则使用 MPS (Metal Performance Shaders) 进行加速，且需要降级 `pip` 与 `setuptools`。
-
-Windows:
-```bash 
-# 使用 GPU 训练需要手动安装完整版 PyTorch
-conda install pytorch=2.0.0 torchvision pytorch-cuda=11.8 -c pytorch -c nvidia
-
-# 运行程序脚本测试 PyTorch 是否能成功调用 GPU
-python .\utils\check_gpu_status.py
-
-# 安装外部代码库
-pip install -r requirements.txt
-```
-
-macOS (Apple Silicon):
-```bash
-# 使用 GPU 训练需要手动安装 Apple Silicon 版 PyTorch
-conda install pytorch::pytorch=2.0.1 torchvision torchaudio -c pytorch
-
-# 运行程序脚本测试 PyTorch 是否能成功调用 GPU
-python utils/check_gpu_status_mps.py
-
-# 安装 tensorboard
-pip install tensorboard==2.13.0
-
-# 降级安装外部代码库
-pip install setuptools==65.5.0 pip==21
-pip install -r requirements.txt
-```
+服务启动后，在 DevEco Studio 中导入并打开 `client/` 文件夹下的元服务工程项目，步骤可参考[DevEco 使用指南](https://developer.harmonyos.com/cn/docs/documentation/doc-guides/installation_process-0000001071425528)。
 
 ### 运行测试
 
-项目 `main/` 文件夹下包含经典游戏《贪吃蛇》的程序脚本，基于 [Pygame](https://www.pygame.org/news) 代码库，可以直接运行以下指令进行游戏：
+运行元服务程序前，需要将主页面文件 `Conversation.ets` 与万能卡片文件 `WidgetCard.ets` 中的 ip 地址修改为实际服务器地址。两个文件的具体路径如下：
 
 ```bash
-cd [项目上级文件夹]/snake-ai/main
-python .\snake_game.py
+client/Application/entry/src/main/ets/pages/Conversation_template.ets
+client/Application/entry/src/main/ets/widget/pages/WidgetCard.ets
 ```
 
-环境配置完成后，可以在 `main/` 文件夹下运行 `test_cnn.py` 或 `test_mlp.py` 进行测试，观察两种智能代理在不同训练阶段的实际表现。
+### 补充说明
+
+万能卡片底图使用 stability.ai 的 AI 作画模型 SDXL 1.0 生成，提示词及参数信息如下：
 
 ```bash
-cd [项目上级文件夹]/snake-ai/main
-python test_cnn.py
-python test_mlp.py
+a robot surfing on the sea, The Great Wave off Kanagawa, Katsushika Hokusai Art, Japanese Ukiyo-e, Woodblock print, App background
+Negative prompt: ugly, text, logo, monochrome, bad art
+Steps: 20, Sampler: Euler a, CFG scale: 7, Seed: 3837218968, Size: 1024x1024, Model hash: 31e35c80fc, Model: sd_xl_base_1.0, Clip skip: 2, Version: v1.5.1
 ```
-
-模型权重文件存储在 `main/trained_models_cnn/` 与 `main/trained_models_mlp/` 文件夹下。两份测试脚本均默认调用训练完成后的模型。如果需要观察不同训练阶段的 AI 表现，可将测试脚本中的 `MODEL_PATH` 变量修改为其它模型的文件路径。
-
-### 训练模型
-
-如果需要重新训练模型，可以在 `main/` 文件夹下运行 `train_cnn.py` 或 `train_mlp.py`。
-
-```bash
-cd [项目上级文件夹]/snake-ai/main
-python train_cnn.py
-python train_mlp.py
-```
-
-### 查看曲线
-
-项目中包含了训练过程的 Tensorboard 曲线图，可以使用 Tensorboard 查看其中的详细数据。推荐使用 VSCode 集成的 Tensorboard 插件直接查看，也可以使用传统方法：
-
-```bash
-cd [项目上级文件夹]/snake-ai/main
-tensorboard --logdir=logs/
-```
-
-在浏览器中打开 Tensorboard 服务默认地址 `http://localhost:6006/`，即可查看训练过程的交互式曲线图。
 
 ## 鸣谢
 本项目调用的外部代码库包括 [nemo2011/bilibili-api](https://github.com/nemo2011/bilibili-api)、[ymcui/Chinese-LLaMA-Alpaca](https://github.com/ymcui/Chinese-LLaMA-Alpaca/tree/main)、[oobabooga/text-generation-webui](https://github.com/oobabooga/text-generation-webui)、[Flask](https://github.com/pallets/flask) 等。感谢各位软件工作者对开源社区的无私奉献！
