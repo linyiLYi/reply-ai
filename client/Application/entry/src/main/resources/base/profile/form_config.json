@@ -15,9 +15,10 @@
       "formVisibleNotify": true,
       "scheduledUpdateTime": "10:30",
       "updateDuration": 1,
-      "defaultDimension": "2*2",
+      "defaultDimension": "4*4",
       "supportDimensions": [
-        "2*2"
+        "2*2",
+        "4*4"
       ]
     }
   ]
