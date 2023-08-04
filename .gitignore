@@ -169,6 +169,7 @@ server/example_comment_dict.txt
 # Server files
 server/data/processed_rpids.txt
 server/data/rejected_rpids.txt
+server/automatic-server.py
 
 # PyCharm
 #  JetBrains specific template is maintainted in a separate JetBrains.gitignore that can
