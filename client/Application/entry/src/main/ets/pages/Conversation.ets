@@ -1,6 +1,5 @@
 import http from '@ohos.net.http'
 import hilog from '@ohos.hilog';
-import EntryFormAbility from '../entryformability/EntryFormAbility';
 
 @Entry
 @Component

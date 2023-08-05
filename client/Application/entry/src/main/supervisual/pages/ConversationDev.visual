@@ -95,11 +95,11 @@
                                         "dataType": "Map",
                                         "value": {
                                             "height": "60vp",
-                                            "width": "300vp",
-                                            "font-size": "30fp",
-                                            "font-weight": "bold",
+                                            "width": "200vp",
+                                            "content": "待确认回复",
+                                            "font-size": "40fp",
                                             "text-align": "center",
-                                            "content": "待确认回复"
+                                            "font-weight": "bold"
                                         }
                                     },
                                     "dynamicProperty": {
@@ -219,7 +219,7 @@
                                                                 "value": {
                                                                     "width": "100%",
                                                                     "height": "100%",
-                                                                    "background-color": "#F0F0F0",
+                                                                    "background-color": "#f0d5d5",
                                                                     "border-width": "2vp",
                                                                     "border-radius": "10vp",
                                                                     "padding": "10vp",
@@ -260,7 +260,7 @@
                                                                                 "font-weight": "bold",
                                                                                 "text-align": "start",
                                                                                 "font-family": "sans-serif",
-                                                                                "font-size": "10fp",
+                                                                                "font-size": "14fp",
                                                                                 "max-lines": "6"
                                                                             }
                                                                         },
@@ -300,7 +300,8 @@
                                                                                 "height": "40%",
                                                                                 "width": "100%",
                                                                                 "text-overflow": "ellipsis",
-                                                                                "max-lines": "6"
+                                                                                "max-lines": "6",
+                                                                                "font-size": "14fp"
                                                                             }
                                                                         },
                                                                         "dynamicProperty": {
@@ -371,8 +372,10 @@
                                                                                             "width": "33%",
                                                                                             "height": "100%",
                                                                                             "background-color": "#4CAF50",
-                                                                                            "label": "Accept",
-                                                                                            "type": "normal"
+                                                                                            "label": "接受",
+                                                                                            "type": "normal",
+                                                                                            "border-right-width": "0vp",
+                                                                                            "border-radius": "10vp"
                                                                                         }
                                                                                     },
                                                                                     "dynamicProperty": {
@@ -409,8 +412,9 @@
                                                                                             "width": "33%",
                                                                                             "height": "100%",
                                                                                             "background-color": "#2196F3",
-                                                                                            "label": "Edit",
-                                                                                            "type": "normal"
+                                                                                            "label": "编辑",
+                                                                                            "type": "normal",
+                                                                                            "border-radius": "10vp"
                                                                                         }
                                                                                     },
                                                                                     "dynamicProperty": {
@@ -447,8 +451,9 @@
                                                                                             "width": "33%",
                                                                                             "height": "100%",
                                                                                             "background-color": "#FF9800",
-                                                                                            "label": "Regenerate",
-                                                                                            "type": "normal"
+                                                                                            "label": "拦截",
+                                                                                            "type": "normal",
+                                                                                            "border-radius": "10vp"
                                                                                         }
                                                                                     },
                                                                                     "dynamicProperty": {

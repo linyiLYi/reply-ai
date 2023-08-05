@@ -33,6 +33,7 @@ def get_comments():
 
         # Filter the comments
         comments = [c for c in comments if c['rpid'] not in PROCESSED_RPID_SET]
+        comments.sort(key=lambda c: c['ctime'], reverse=True)
         return jsonify(comments)
     else:
         return jsonify({'error': 'data/comments.json not found'}), 404
